@@ -249,16 +249,6 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../browser-access/" class="md-tabs__link">
-        
-  
-    
-  
-  公開ポートへのアクセス方法
-
-      </a>
-    </li>
   
 
       
@@ -549,53 +539,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#podman-login" class="md-nav__link">
-    podman login：コンテナレジストリへのログイン
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    イメージのタグ付け
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    イメージの削除
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    イメージのプル
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    イメージの検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    イメージのマウント
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
         <li class="md-nav__item">
   <a href="#23" class="md-nav__link">
     2.3　イメージの構築
@@ -606,7 +549,7 @@
         
           <li class="md-nav__item">
   <a href="#_20" class="md-nav__link">
-    アプリケーションのビルドの自動化
+    アプリケーションのビルド
   </a>
   
 </li>
@@ -861,9 +804,6 @@
       <a href="../browser-access/" class="md-nav__link">
         
   
-  <span class="md-ellipsis">
-    公開ポートへのアクセス方法
-  </span>
   
 
       </a>
@@ -1015,48 +955,7 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#podman-login" class="md-nav__link">
-    podman login：コンテナレジストリへのログイン
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    イメージのタグ付け
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    イメージの削除
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    イメージのプル
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    イメージの検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    イメージのマウント
-  </a>
-  
-</li>
+
         
       </ul>
     </nav>
@@ -1073,7 +972,7 @@
         
           <li class="md-nav__item">
   <a href="#_20" class="md-nav__link">
-    アプリケーションのビルドの自動化
+    アプリケーションのビルド
   </a>
   
 </li>
@@ -1101,7 +1000,7 @@
 <h1 id="chapter-2">Chapter 2　コマンドライン</h1>
 <ul>
 <li>レベル:初級</li>
-<li>見込み時間:40分</li>
+<li>見込み時間:30分</li>
 <li>コンテンツ概要<ul>
 <li>コンテナの操作</li>
 <li>コンテナイメージの操作</li>
@@ -1587,7 +1486,7 @@ registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago 
 </code></pre></div></p>
 <details class="success">
 <summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman image inspect --format &#39;{{ .Config.StopSignal }}&#39; myimage
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 </details>
 <h3 id="_14">イメージのプッシュ</h3>
@@ -1633,412 +1532,7 @@ registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago 
 <p><code>myimage</code>コンテナイメージをコンテナレジストリにプッシュします
 <div class="highlight"><pre><span></span><code>$ podman push myimage quay.io/rhatdan/myimage
 </code></pre></div></p>
-<h3 id="podman-login">podman login：コンテナレジストリへのログイン</h3>
-<p>(このコンテンツは本書 2.2.5に該当します)</p>
-<div class="admonition info">
-<p class="admonition-title">quay.ioとは</p>
-<p>quay.ioは、
-以降のquay.ioへのログインやコンテナイメージのpushを行うためにはご自身のアカウントの作成が必要です。
-Red Hatアカウントをお持ちの場合はそれを利用できます。</p>
-</div>
-<p><code>quay.io</code>にログインします
-<div class="highlight"><pre><span></span><code>$ podman login quay.io
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman login quay.io</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果*</summary>
-<div class="highlight"><pre><span></span><code>$ podman login quay.io
-Username: tnk4on
-Password: 
-Login Succeeded!
-</code></pre></div>
-</details>
-<p>ローカルにキャッシュされた認証情報の確認します。</p>
-<div class="admonition tip">
-<p class="admonition-title">注記</p>
-<p>キャッシュされた情報は暗号化されていないのでファイルの取り扱いには注意しましょう。</p>
-</div>
-<div class="highlight"><pre><span></span><code>$ cat /run/user/$UID/containers/auth.json
-</code></pre></div>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">cat /run/user/$UID/containers/auth.json</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果*</summary>
-<div class="highlight"><pre><span></span><code>$ cat /run/user/$UID/containers/auth.json
-{
-        &quot;auths&quot;: {
-                &quot;quay.io&quot;: {
-                        &quot;auth&quot;: &quot;xxxxxxxxxxxxxxxx&quot;
-                }
-        }
-}
-</code></pre></div>
-</details>
-<p><code>quay.io</code>からログアウトします
-<div class="highlight"><pre><span></span><code>$ podman logout quay.io
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman logout quay.io</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果*</summary>
-<div class="highlight"><pre><span></span><code>$ podman logout quay.io
-Removed login credentials for quay.io
-</code></pre></div>
-</details>
-<h3 id="_15">イメージのタグ付け</h3>
-<p>(このコンテンツは本書 2.2.6に該当します)</p>
-<p>コンテナイメージのリストを表示します
-<div class="highlight"><pre><span></span><code>$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED      SIZE
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago  454 MB
-</code></pre></div>
-</details>
-<p><code>podman tag</code>コマンドを使用してコンテナイメージに新しい名前（タグ）を追加できます。
-レジストリ(<code>quay.io</code>)、ユーザー名(<code>rhatdan</code>)を付加した新しいタグを作成します。
-<div class="highlight"><pre><span></span><code>$ podman tag myimage quay.io/rhatdan/myimage
-$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman tag myimage quay.io/rhatdan/myimage</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman tag myimage quay.io/rhatdan/myimage
-$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED         SIZE
-localhost/myimage                         latest      c3c487bbbf7b  37 seconds ago  454 MB
-quay.io/rhatdan/myimage                   latest      c3c487bbbf7b  37 seconds ago  454 MB
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago     454 MB
-</code></pre></div>
-</details>
-<p><code>quay.io</code>にユーザー名を指定してログインします*
-<div class="highlight"><pre><span></span><code>$ podman login --username rhatdan quay.io
-</code></pre></div></p>
-<p><code>quay.io</code>にイメージをプッシュします
-<div class="highlight"><pre><span></span><code>$ podman push quay.io/rhatdan/myimage
-</code></pre></div></p>
-<p><code>podman tag</code>でバージョンを指定したタグを作成します
-<div class="highlight"><pre><span></span><code>$ podman tag quay.io/rhatdan/myimage quay.io/rhatdan/myimage:1.0
-$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman tag quay.io/rhatdan/myimage quay.io/rhatdan/myimage:1.0</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED        SIZE
-localhost/myimage                         latest      c3c487bbbf7b  9 minutes ago  454 MB
-quay.io/rhatdan/myimage                   latest      c3c487bbbf7b  9 minutes ago  454 MB
-quay.io/rhatdan/myimage                   1.0         c3c487bbbf7b  9 minutes ago  454 MB
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago    454 MB
-</code></pre></div>
-</details>
-<h3 id="_16">イメージの削除</h3>
-<p>(このコンテンツは本書 2.2.7に該当します)</p>
-<div class="admonition note">
-<p class="admonition-title">以前に<code>podman commit myapp myimage</code>で作成したコンテナイメージは<code>localhost/myimage</code>という名前で保存されています。</p>
-</div>
-<p><code>localhost/myimage</code>タグを削除します
-<div class="highlight"><pre><span></span><code>$ podman images
-$ podman rmi localhost/myimage
-$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman rmi localhost/myimage</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED         SIZE
-localhost/myimage                         latest      c3c487bbbf7b  10 minutes ago  454 MB
-quay.io/rhatdan/myimage                   latest      c3c487bbbf7b  10 minutes ago  454 MB
-quay.io/rhatdan/myimage                   1.0         c3c487bbbf7b  10 minutes ago  454 MB
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago     454 MB
-$ podman rmi localhost/myimage
-Untagged: localhost/myimage:latest
-$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED         SIZE
-quay.io/rhatdan/myimage                   latest      c3c487bbbf7b  10 minutes ago  454 MB
-quay.io/rhatdan/myimage                   1.0         c3c487bbbf7b  10 minutes ago  454 MB
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago     454 MB
-</code></pre></div>
-</details>
-<p><code>myimage</code>および<code>myimage:1.0</code>を削除します</p>
-<div class="admonition">
-<p class="admonition-title">訳注</p>
-<p>1章で実行したコンテナが残っている場合は、myimageの削除前に停止する必要があります。
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman rm -f -t 0 myapp1</span>
-</code></pre></div></p>
-</div>
-<div class="highlight"><pre><span></span><code>$ podman rmi myimage
-$ podman rmi myimage:1.0
-$ podman images
-</code></pre></div>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman rmi myimage</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman rmi myimage:1.0</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman rmi myimage
-Untagged: quay.io/rhatdan/myimage:latest
-$ podman rmi myimage:1.0
-Untagged: quay.io/rhatdan/myimage:1.0
-Deleted: c3c487bbbf7ba989432ae65facfac36ca34fbd75fde664b24cf6247bf844f955
-$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED      SIZE
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago  454 MB
-</code></pre></div>
-</details>
-<div class="admonition">
-<p class="admonition-title">コンテナイメージを削除する別の方法</p>
-<p>ID指定してコンテナイメージを削除することも可能です。</p>
-</div>
-<div class="highlight"><pre><span></span><code>$ podman rmi edc479f58484
-$ podman rmi edc479f58484 --force
-</code></pre></div>
-<p><code>podman image prune -a</code>コマンドを使用すると、起動中のコンテナで使われているコンテナイメージ以外を全て削除できます。
-ローカルにあるコンテナイメージを全て削除します。
-<div class="highlight"><pre><span></span><code>$ podman image prune -a
-$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman image prune -a</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman image prune -a
-WARNING! This command removes all images without at least one container associated with them.
-Are you sure you want to continue? [y/N] y
-$ podman images
-</code></pre></div>
-</details>
-<h3 id="_17">イメージのプル</h3>
-<p>(このコンテンツは本書 2.2.8に該当します)</p>
-<p><code>quay.io</code>から<code>myimage</code>コンテナイメージをプルする
-<div class="highlight"><pre><span></span><code>$ podman pull quay.io/rhatdan/myimage
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman pull quay.io/rhatdan/myimage</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman pull quay.io/rhatdan/myimage
-Trying to pull quay.io/rhatdan/myimage:latest...
-Getting image source signatures
-Copying blob e3460238f8a1 done  
-Copying blob c7765172d3ce done  
-Copying blob dfd8c625d022 done  
-Copying blob 2b782a9ad894 done  
-Copying blob a1eadb69adf1 done  
-Copying config 2c7e43d880 done  
-Writing manifest to image destination
-Storing signatures
-2c7e43d880382561ebae3fa06c7a1442d0da2912786d09ea9baaef87f73c29ae
-</code></pre></div>
-</details>
-<p>Original
-<div class="highlight"><pre><span></span><code>$ podman run -d -p 8080:8080 --name myapp registry.access.redhat.com/ubi8/httpd-24
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman run -d -p 8080:8080 --name myapp registry.access.redhat.com/ubi8/httpd-24</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman run -d -p 8080:8080 --name myapp registry.access.redhat.com/ubi8/httpd-24
-Trying to pull registry.access.redhat.com/ubi8/httpd-24:latest...
-Getting image source signatures
-Checking if image destination supports signatures
-Copying blob 9ece777c9660 done  
-Copying blob 70de3d8fc2c6 done  
-Copying blob b653248f5bcb done  
-Copying config c4127096ce done  
-Writing manifest to image destination
-Storing signatures
-a68b01256feb009ba382174831f67a8f78af61024abe809c50d1ce6ae6f84131
-</code></pre></div>
-</details>
-<p>コンテナイメージのリストを表示します
-<div class="highlight"><pre><span></span><code>$ podman images
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED      SIZE
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago  454 MB
-quay.io/rhatdan/myimage                   latest      2c7e43d88038  2 years ago  462 MB
-</code></pre></div>
-</details>
-<p>Dockerはdocker.ioをハードコード
-Podmanでは複数のレジストリが定義されている。パッケージングにより異なる。</p>
-<p>Podmanの情報を出力
-<div class="highlight"><pre><span></span><code>$ podman info
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman info</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman info
-...
-registries:
-  search:
-  - registry.access.redhat.com
-  - registry.redhat.io
-  - docker.io
-...
-</code></pre></div>
-</details>
-<p><code>podman create</code>コマンドを使うと、コンテナイメージからコンテナが作成されますがすぐには実行されません。
-停止状態のコンテナを起動するには<code>podman start</code>コマンドを使用します。</p>
-<p>短縮名でコンテナイメージを指定し、コンテナを作成します
-<div class="highlight"><pre><span></span><code>$ podman create -p 8080:8080 ubi8/httpd-24
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman create -p 8080:8080 ubi8/httpd-24</span>
-</code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">注記</p>
-<p>RHELの場合*
-<div class="highlight"><pre><span></span><code>$ podman create -p 8080:8080 ubi8/httpd-24
-Resolved &quot;ubi8/httpd-24&quot; as an alias (/etc/containers/registries.conf.d/001-rhel-shortnames.conf)
-Trying to pull registry.access.redhat.com/ubi8/httpd-24:latest...
-Getting image source signatures
-Checking if image destination supports signatures
-Copying blob 9ece777c9660 done  
-Copying blob 70de3d8fc2c6 done  
-Copying blob b653248f5bcb done  
-Copying config c4127096ce done  
-Writing manifest to image destination
-Storing signatures
-94ad6a37b8fb40b13eb7038e5e174cc22bdd3fe8237a6fbd6a14bd87896528f8
-</code></pre></div>
-- <code>"ubi8" = "registry.access.redhat.com/ubi8"</code> があるため解決してしまう</p>
-<p>短縮名を設定しているファイルの内容を確認してみる
-<div class="highlight"><pre><span></span><code>$ cat /etc/containers/registries.conf.d/000-shortnames.conf
-</code></pre></div>
-出力結果
-<div class="highlight"><pre><span></span><code>$ cat /etc/containers/registries.conf.d/000-shortnames.conf
-[aliases]
-...
-  # centos
-  &quot;centos&quot; = &quot;quay.io/centos/centos&quot;
-  # containers
-  &quot;skopeo&quot; = &quot;quay.io/skopeo/stable&quot;
-  &quot;buildah&quot; = &quot;quay.io/buildah/stable&quot;
-  &quot;podman&quot; = &quot;quay.io/podman/stable&quot;
-...
-</code></pre></div></p>
-</div>
-<h3 id="_18">イメージの検索</h3>
-<p>(このコンテンツは本書 2.2.9に該当します)</p>
-<p>リポジトリregistry.access.redhat.comで、名前にhttpdという文字列を含むイメージを検索します
-<div class="highlight"><pre><span></span><code>$ podman search registry.access.redhat.com/httpd
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman search registry.access.redhat.com/httpd</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman search registry.access.redhat.com/httpd
-NAME                                                                         DESCRIPTION
-registry.access.redhat.com/rhscl/httpd-24-rhel7                              Apache HTTP 2.4 Server
-registry.access.redhat.com/ubi8/httpd-24                                     Platform for running Apache httpd 2.4 or bui...
-registry.access.redhat.com/ubi9/httpd-24                                     rhcc_registry.access.redhat.com_ubi9/httpd-2...
-registry.access.redhat.com/cloudforms46-beta/cfme-openshift-httpd            CloudForms is a management and automation pl...
-registry.access.redhat.com/cloudforms46/cfme-openshift-httpd                 Web Server image for a multi-pod Red Hat® C...
-...
-</code></pre></div>
-</details>
-<h3 id="_19">イメージのマウント</h3>
-<p>(このコンテンツは本書 2.2.10に該当します)</p>
-<p><code>podman mount</code>を実行する。そのままではエラーになる。
-<div class="highlight"><pre><span></span><code>$ podman mount quay.io/rhatdan/myimage
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman mount quay.io/rhatdan/myimage</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman mount quay.io/rhatdan/myimage
-Error: cannot run command &quot;podman mount&quot; in rootless mode, must execute `podman unshare` first
-</code></pre></div>
-</details>
-<p><code>podman unshare</code>を実行します（ローカルにイメージが無い場合は<code>podman pull quay.io/rhatdan/myimage</code>を事前に実行します）
-<code>podman unsahre</code>を実行するとプロンプトが<code>$</code>から<code>#</code>に変化します。
-<div class="highlight"><pre><span></span><code>$ podman unshare
-# mnt=$(podman image mount quay.io/rhatdan/myimage)
-# cat $mnt/var/www/html/index.html
-# podman image unmount quay.io/rhatdan/myimage
-# exit
-</code></pre></div></p>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman unshare</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mnt=$(podman image mount quay.io/rhatdan/myimage)</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">cat $mnt/var/www/html/index.html</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman image unmount quay.io/rhatdan/myimage</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">exit</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman unshare
-# mnt=$(podman image mount quay.io/rhatdan/myimage)
-# cat $mnt/var/www/html/index.html
-&lt;html&gt;
- &lt;head&gt;
- &lt;/head&gt;
- &lt;body&gt;
-   &lt;h1&gt;Hello World&lt;h1&gt;
- &lt;/body&gt;
-&lt;/html&gt;
-# podman image unmount quay.io/rhatdan/myimage
-2c7e43d880382561ebae3fa06c7a1442d0da2912786d09ea9baaef87f73c29ae
-# exit
-exit
-</code></pre></div>
-</details>
-<div class="admonition question">
-<p class="admonition-title">（オプション）<code>podman image</code>コマンドの他のサブコマンドの詳細はマニュアルページを参照してください</p>
-<div class="highlight"><pre><span></span><code>$ man podman-image
-</code></pre></div>
-</div>
-<div class="admonition abstract">
-<p class="admonition-title">まとめ（2.2 コンテナイメージの操作）</p>
-<p>コンテナ実行の元となるコンテナイメージは、コンテナレジストリから入手するだけでなく、名前やタグを付けたものをコンテナレジストリにプッシュできます。
-Dockerには無いPodman独自のコマンドとして、<code>podman image mount</code>や<code>podman unshare</code>があります。これらのコマンドを使用することでより安全にコンテナイメージの中を調査することができます。</p>
-</div>
+
 <h2 id="23">2.3　イメージの構築</h2>
 <!-- 
 ### ContainerfileまたはDockerfileのフォーマット
@@ -2049,7 +1543,7 @@ Containerfileのサンプル
 </code></pre></div>
 -->
 
-<h3 id="_20">アプリケーションのビルドの自動化</h3>
+<h3 id="_20">アプリケーションのビルド</h3>
 <p>(このコンテンツは本書 2.3.2に該当します)</p>
 <p>myappディレクトリを作成し、その中にindex.htmlとContainerfileを作成します
 <div class="highlight"><pre><span></span><code>$ mkdir myapp
@@ -2067,31 +1561,38 @@ FROM ubi8/httpd-24
 COPY index.html /var/www/html/index.html
 _EOF
 </code></pre></div></p>
-<p>出力結果
-<div class="highlight"><pre><span></span><code>$ mkdir myapp
-$ cat &gt; myapp/index.html &lt;&lt; _EOF
-&lt;html&gt;
- &lt;head&gt;
- &lt;/head&gt;
- &lt;body&gt;
- &lt;h1&gt;Hello World&lt;/h1&gt;
- &lt;/body&gt;
-&lt;/html&gt;
-_EOF
-$ cat &gt; myapp/Containerfile &lt;&lt; _EOF
-FROM ubi8/httpd-24
-COPY index.html /var/www/html/index.html
-_EOF
-</code></pre></div></p>
-<p>コンテナイメージをビルドします
-<div class="highlight"><pre><span></span><code>$ podman build -t quay.io/rhatdan/myimage ./myapp
-</code></pre></div></p>
 <p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman build -t quay.io/rhatdan/myimage ./myapp</span>
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mkdir myapp</span>
+</code></pre></div></p>
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">cat &gt; myapp/index.html &lt;&lt; _EOF</span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;html&gt;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&lt;head&gt;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&lt;/head&gt;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;body&gt;</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;h1&gt;Hello World&lt;/h1&gt;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/body&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;/html&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">_EOF</span>
+</code></pre></div></p>
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">cat &gt; myapp/Containerfile &lt;&lt; _EOF</span>
+<span class="l l-Scalar l-Scalar-Plain">FROM ubi8/httpd-24</span>
+<span class="l l-Scalar l-Scalar-Plain">COPY index.html /var/www/html/index.html</span>
+<span class="l l-Scalar l-Scalar-Plain">_EOF</span>
 </code></pre></div></p>
 <details class="success">
 <summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>$ podman build -t quay.io/rhatdan/myimage ./myapp
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+</details>
+<p>コンテナイメージをビルドします
+<div class="highlight"><pre><span></span><code>$ podman build ./myapp
+</code></pre></div></p>
+<p>(コピペ用)
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman build ./myapp</span>
+</code></pre></div></p>
+<details class="success">
+<summary>出力結果</summary>
+<div class="highlight"><pre><span></span><code>$ podman build ./myapp
 STEP 1/2: FROM ubi8/httpd-24
 STEP 2/2: COPY index.html /var/www/html/index.html
 COMMIT quay.io/rhatdan/myimage
@@ -2100,50 +1601,47 @@ Successfully tagged quay.io/rhatdan/myimage:latest
 1992ba61ae60d779d865e7de510601d52184f12b25187f6b8c02318ccc240f6b
 </code></pre></div>
 </details>
-<p>コンテナイメージをビルドし、レジストリにプッシュするスクリプトを作成します</p>
-<div class="admonition">
-<p class="admonition-title">このシェルスクリプトはコンテナのビルドとプッシュを簡単に自動化するための一例です。</p>
-<p>ここではスクリプトの実行は行いませんが、試してみたい方はご自身の<code>quay.io</code>アカウントを用意してお試しください。</p>
-</div>
-<div class="highlight"><pre><span></span><code>$ cat &gt; myapp/automate.sh &lt;&lt; _EOF
-#!/bin/bash
-podman build -t quay.io/rhatdan/myimage ./myapp
-podman push quay.io/rhatdan/myimage
-_EOF
-$ chmod +x myapp/automate.sh
-</code></pre></div>
-<p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">cat &gt; myapp/automate.sh &lt;&lt; _EOF</span>
-<span class="l l-Scalar l-Scalar-Plain">#!/bin/bash</span>
-<span class="l l-Scalar l-Scalar-Plain">podman build -t quay.io/rhatdan/myimage ./myapp</span>
-<span class="l l-Scalar l-Scalar-Plain">podman push quay.io/rhatdan/myimage</span>
-<span class="l l-Scalar l-Scalar-Plain">_EOF</span>
-</code></pre></div>
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">chmod +x myapp/automate.sh</span>
-</code></pre></div></p>
-<details class="success">
-<summary>出力結果</summary>
-<div class="highlight"><pre><span></span><code>cat &gt; myapp/automate.sh &lt;&lt; _EOF
-#!/bin/bash
-podman build -t quay.io/rhatdan/myimage ./myapp
-podman push quay.io/rhatdan/myimage
-_EOF
-$ chmod +x myapp/automate.sh
-</code></pre></div>
-</details>
 <p>コンテナイメージのリストを出力する
 <div class="highlight"><pre><span></span><code>$ podman images
 </code></pre></div></p>
 <p>(コピペ用)
-<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ podman images</span>
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">podman images</span>
 </code></pre></div></p>
 <details class="success">
 <summary>出力結果</summary>
 <div class="highlight"><pre><span></span><code>$ podman images
-REPOSITORY                                TAG         IMAGE ID      CREATED        SIZE
-quay.io/rhatdan/myimage                   latest      1992ba61ae60  4 minutes ago  454 MB
-registry.access.redhat.com/ubi8/httpd-24  latest      c4127096ce64  2 weeks ago    454 MB
-&lt;none&gt;                                    &lt;none&gt;      2c7e43d88038  2 years ago    462 MB
+REPOSITORY                                TAG         IMAGE ID      CREATED         SIZE
+&lt;none&gt;                                    &lt;none&gt;      2599b1e360a8  20 seconds ago  446 MB
+registry.access.redhat.com/ubi8/httpd-24  latest      bbe9b8c86ec4  2 days ago      446 MB
+</code></pre></div>
+</details>
+<p>構築したイメージを起動する
+<div class="highlight"><pre><span></span><code>$ podman run -d -p 8080:8080 --name myapp2 2599b1e360a8
+</code></pre></div></p>
+<p>(コピペ用)
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain"> podman run -d -p 8080:8080 --name myapp2 [IMAGE ID]</span>
+</code></pre></div></p>
+<details class="success">
+<summary>出力結果</summary>
+<div class="highlight"><pre><span></span><code>$ podman run -d -p 8080:8080 --name myapp 2599b1e360a8
+23147f92cebfd631656cda8c61bc80bab6f905762bd3368ab8134d08957c7684
+</code></pre></div>
+</details>
+<p>起動したコンテナを確認する
+<div class="highlight"><pre><span></span><code>$ curl http://localhost:8080
+</code></pre></div></p>
+<p>(コピペ用)
+<div class="copy highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain"> curl http://localhost:8080</span>
+</code></pre></div></p>
+<details class="success">
+<summary>出力結果</summary>
+<div class="highlight"><pre><span></span><code>&lt;html&gt;
+ &lt;head&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;h1&gt;Hello World&lt;/h1&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div>
 </details>
 <!-- 
